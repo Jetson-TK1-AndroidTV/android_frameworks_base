@@ -520,7 +520,7 @@ public class AudioService extends IAudioService.Stub {
             = new RemoteCallbackList<IAudioRoutesObserver>();
 
     // Devices for which the volume is fixed and VolumePanel slider should be disabled
-    int mFixedVolumeDevices = AudioSystem.DEVICE_OUT_HDMI |
+    int mFixedVolumeDevices = /*AudioSystem.DEVICE_OUT_HDMI |*/
             AudioSystem.DEVICE_OUT_DGTL_DOCK_HEADSET |
             AudioSystem.DEVICE_OUT_ANLG_DOCK_HEADSET |
             AudioSystem.DEVICE_OUT_HDMI_ARC |
@@ -743,7 +743,7 @@ public class AudioService extends IAudioService.Stub {
             synchronized (mHdmiManager) {
                 mHdmiTvClient = mHdmiManager.getTvClient();
                 if (mHdmiTvClient != null) {
-                    mFixedVolumeDevices &= ~AudioSystem.DEVICE_ALL_HDMI_SYSTEM_AUDIO_AND_SPEAKER;
+                    mFixedVolumeDevices &= ~AudioSystem.DEVICE_OUT_ALL_USB;
                 }
                 mHdmiPlaybackClient = mHdmiManager.getPlaybackClient();
                 mHdmiCecSink = false;
@@ -5132,7 +5132,7 @@ public class AudioService extends IAudioService.Stub {
                 }
                 // Television devices without CEC service apply software volume on HDMI output
                 if (isPlatformTelevision() && ((device & AudioSystem.DEVICE_OUT_HDMI) != 0)) {
-                    mFixedVolumeDevices |= AudioSystem.DEVICE_OUT_HDMI;
+                    mFixedVolumeDevices |= AudioSystem.DEVICE_OUT_ALL_USB;
                     checkAllFixedVolumeDevices();
                     if (mHdmiManager != null) {
                         synchronized (mHdmiManager) {

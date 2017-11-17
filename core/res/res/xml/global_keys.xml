@@ -26,6 +26,9 @@
 -->
 
 <global_keys version="1">
-    <!-- Example format: keyCode = keycode to handle globally. component = component which will handle this key. -->
-    <!-- <key keyCode="KEYCODE_VOLUME_UP" component="com.android.example.keys/.VolumeKeyHandler" /> -->
+    <key keyCode="KEYCODE_GUIDE" component="com.google.android.tv/.receiver.GlobalKeyReceiver" />
+    <key keyCode="KEYCODE_TV" component="com.google.android.tv/.receiver.GlobalKeyReceiver" />
+    <key keyCode="KEYCODE_TV_INPUT" component="com.google.android.tv/.receiver.GlobalKeyReceiver" />
+    <!-- <key keyCode="KEYCODE_VOLUME_UP" component="com.google.android.athome.globalkeyinterceptor/.Receiver" /> -->
+    <!-- <key keyCode="KEYCODE_VOLUME_DOWN" component="com.google.android.athome.globalkeyinterceptor/.Receiver" /> -->
 </global_keys>
